@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shadow-Transform-Transition</title>
+	<style type="text/css">
+		#g1{
+			box-shadow: 10px 10px;
+		}
+		#g2{
+			box-shadow: 10px 10px 10px maroon;
+		}
+		#g3{
+  width: 100px;
+  height: 120px;
+  background: lightgreen;
+  -moz-transition: width 1s;
+}
+
+#g3:hover {
+  width: 300px;
+}
+	</style>
+</head>
+<body>
+<div id="g1" style="width: 500px; height: 50px; border:2px solid black; background-color: orange"  ><p>This is the division in which we are going to put shadow.</p></div><br><br>
+<div id="g2" style="width: 500px; height: 50px; border:2px solid black; background-color: orange"  ><p>This is the division in which we are going to put shadow.</p></div>
+<h1 style="text-shadow: 1px 1px 5px darkred;">
+Abhinav Saxena
+</h1>
+<div style="width: 500px; height: 50px; border:2px solid black;background-color: grey"><p>This is the division in which we are going to put trasition transform.</p></div>
+<div style="width: 500px; height: 50px; border:2px solid black; transform: translate(10px,20px);background-color: aqua"  ><p>This is the division in which we are going to put trasition transform-translate.</p></div><br><br><br><br>
+<div style="width: 500px; height: 50px; border:2px solid black; transform: rotate(20deg);background-color: yellow;"><p>This is the division in which we are going to put trasition transform-rotate.</p></div>
+<br><br><br>
+
+<div style="width: 500px; height: 50px; border:2px solid black; transform: scale(0.75,0.75);background-color: green"><p>This is the division in which we are going to put trasition transform-scale.</p></div><br><br><br>
+<div style="width: 500px; height: 50px; border:2px solid black;transform: skewX(20deg);background-color: violet"><p>This is the division in which we are going to put trasition transform-skewX.</p></div>
+<br><br><br>
+<div style="width: 500px; height: 50px; border:2px solid black;transform: skewY(20deg);background-color: red"><p>This is the division in which we are going to put trasition transform-skewY.</p></div>
+<br><br><br>
+<div style="width: 500px; height: 50px; border:2px solid black;transform: matrix(0.2,0.2,-2,0,30,30);background-color: lightblue"><p>This is the division in which we are going to put trasition transform-matrix.</p></div>
+<br><br><br>
+<div id="g3"><p>This is the division in which we are going to put transition.</p></div>
+
+</body>
+</html>

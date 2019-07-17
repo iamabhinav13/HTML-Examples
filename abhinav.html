@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+	<style type="text/css">
+		  #para1{
+  				color: #a31f54;
+  				font-family: courier;
+  				font-size: 150%;
+			}
+			#grad1 {
+  height: 200px;
+  background-color: red; 
+  background-image: linear-gradient(to right,blue 25%,red, white);
+}
+#grad2 {
+  background-image: radial-gradient(circle,aqua, gold, red);
+}
+#grad3 {
+  background-image: repeating-linear-gradient(45deg,green,white );
+}
+#grad4 {
+  background-image: linear-gradient(45deg,aqua,white 40%,silver );
+}
+#grad5 {
+  background-image: radial-gradient(lightgreen,gold,darkgreen );
+}
+</style>
+<meta charset="utf-8">
+	<title>LAB 2</title>
+</head>
+<body>
+
+	<header id="para1" align=center><h1>Avengers</h1></header>
+
+	<hr width=100% align=left height=5px noshade size=10px color=black>
+	
+	<section>
+		<article id="grad2">
+			<header><h3>1. Ironman</h3></header>
+			<p>Iron Man is a 2008 American superhero film based on the Marvel Comics character of the same name, produced by Marvel Studios and distributed by Paramount Pictures.<br> It stars Robert Downey Jr. as Tony Stark / Iron Man.</p>
+			<nav><a href="C:\Users\parul\Desktop\Ironman.jpg">Ironman</a></nav>
+		</article>
+		<article id="grad1">
+			<header style="color: white"><h3>2. Captain America</h3></header>
+			<p style="color: white">Captain America: The First Avenger is a 2011 American superhero film based on the Marvel Comics character Captain America, produced by Marvel Studios and distributed<br> by Paramount Pictures.It is the fifth film in the Marvel Cinematic Universe (MCU).It stars Chris Evans as Steve Rogers / Captain America</p>
+			<nav><a href="C:\Users\parul\Desktop\captain.jpg">Captain America</a></nav>
+		</article>
+		<article id="grad3">
+			<header><h3>3. Hulk</h3></header>
+			<p>The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics. Created by writer Stan Lee and artist Jack Kirby, the character first appeared in the debut issue of The Incredible Hulk (May 1962). In his comic book appearances, the character is both the Hulk, a green-skinned, hulking and muscular humanoid possessing a vast degree of physical strength, and his alter ego Dr. Robert Bruce Banner, a physically weak, socially withdrawn, and emotionally reserved physicist, the two existing as independent personalities and resenting of the other.</p>
+			<nav><a href="C:\Users\parul\Desktop\hulk.jpg">Hulk</a></nav>
+		</article>
+		<article id="grad4">
+			<header><h3>4. Thor</h3></header>
+		<p>Thor is a fictional superhero appearing in American comic books published by Marvel Comics. The character, based on the Norse deity of the same name, is the Asgardian god of thunder and possesses the enchanted hammer Mjolnir, which grants him the ability to fly and manipulate weather amongst his other superhuman attributes.</p>
+		<nav><a href="C:\Users\parul\Desktop\thor.jpg">Thor</a></nav>
+		</article>
+		<article id="grad5">
+			<header><h3>5. Doctor Strange</h3></header>
+			<p>Doctor Stephen Vincent Strange is a fictional superhero appearing in American comic books published by Marvel Comics.Doctor Strange serves as the Sorcerer Supreme, the primary protector of Earth against magical and mystical threats. Inspired by stories of black magic and Chandu the Magician, Strange was created during the Silver Age of Comic Books to bring a different kind of character and themes of mysticism to Marvel Comics.</p>
+			<nav><a href="C:\Users\parul\Desktop\doctor.jpg">Doctor Strange</a></nav>
+		</article>
+	</section>
+	<hr>
+	<section id="Canvas">
+		<canvas id="canvas1" width="100" height="100" style="border: 2px solid black"></canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("canvas1");
+			var ctx = c.getContext("2d");
+			ctx.moveTo(0,0);
+			ctx.lineTo(100,100);
+			ctx.stroke();
+		</script>
+		<canvas id="canvas2" width="100" height="100" style="border: 2px solid black"></canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("canvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(50, 50, 20, 0, 2 * Math.PI);
+			ctx.stroke(); 	
+		</script>
+		<canvas id="canvas3" width="150" height="100" style="border: 2px solid black"></canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("canvas3");
+			var ctx=c.getContext("2d");
+			ctx.font="25px courier"
+			ctx.fillText("ABHINAV",10,30);
+			
+
+		</script>
+		<canvas id="canvas4" width="150" height="100" style="border: 2px solid black"></canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("canvas4");
+			var ctx=c.getContext("2d");
+			ctx.font="25px courier"
+			ctx.strokeText("ABHINAV",10,30);
+		</script>
+		<br>
+		<img id="image" src="images.jpg" alt="Sorry" width="100" height="100">
+		
+		<canvas id="canvas5" width="200" height="200" style="border: 2px solid black"></canvas>
+		<script type="text/javascript">
+			function func()
+			{
+			var c=document.getElementById("canvas5");
+			var ctx=c.getContext("2d");
+			var img=document.getElementById("image");
+			ctx.drawImage(img,0,0);
+			}
+		</script>
+		<p><button onclick="func()">Try it</button></p>
+	</section>
+	<section id="Geolocation">
+		<p>Click the button to get your coordinates.</p>
+		<button onclick="getLocation()">Try It</button>
+		<p id="demo"></p>
+		<div id="mapholder"></div>
+		<script>
+			var x = document.getElementById("demo");
+			function getLocation() {
+  			if (navigator.geolocation)
+  			{
+    			navigator.geolocation.getCurrentPosition(showPosition, showError);
+  			} else
+  			{ 
+   				 x.innerHTML = "Geolocation is not supported by this browser.";
+  			}
+		}	
+
+			//function showPosition(position) {
+  				//x.innerHTML = "Latitude: " + position.coords.latitude +
+  				//"<br>Longitude: " + position.coords.longitude;
+  				function showPosition(position) {
+  					var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+ 					var img_url = "https://maps.googleapis.com/maps/api/staticmap?center= "+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+
+  					document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+				}
+		
+		function showError(error) {
+  			switch(error.code) {
+    		case error.PERMISSION_DENIED:
+      			x.innerHTML = "User denied the request for Geolocation."
+      			break;
+    			case error.POSITION_UNAVAILABLE:
+      			x.innerHTML = "Location information is unavailable."
+      			break;
+    			case error.TIMEOUT:
+      			x.innerHTML = "The request to get user location timed out."
+      			break;
+    			case error.UNKNOWN_ERROR:
+      			x.innerHTML = "An unknown error occurred."
+      			break;
+ 		 }
+        }</script>
+	</section>
+	<a href="geolocation.htm">Contact Us</a>
+	<hr>
+	<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+	<footer>Copyrights: Parul University(2000-2019)</footer>
+	
+
+</body>
+</html>
